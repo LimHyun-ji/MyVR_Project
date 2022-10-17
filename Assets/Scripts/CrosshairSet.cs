@@ -26,12 +26,12 @@ public class CrosshairSet : MonoBehaviour
             crosshair.position = hitInfo.point + hitInfo.normal * 0.1f;
             float dist = Mathf.Max(hitInfo.distance, 1);
             crosshair.localScale = originScale * dist;
-            print($"ºÎµúÈù ´ë»ó: {hitInfo.collider.name}");
+            //print($"ºÎµúÈù ´ë»ó: {hitInfo.collider.name}");
         }
         else
         {
             crosshair.position = head.position + head.forward * 1;
-            print("¾ÈºÎµúÇû¾î¿ä!");
+            //print("¾ÈºÎµúÇû¾î¿ä!");
         }
 
         crosshair.forward = Camera.main.transform.forward;

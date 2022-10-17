@@ -1,6 +1,6 @@
 // Unity built-in shader source. Copyright (c) 2016 Unity Technologies. MIT license (see license.txt)
 
-Shader "Standard"
+Shader "Standard_Crosshair"
 {
     Properties
     {
@@ -66,6 +66,7 @@ Shader "Standard"
 
             Blend [_SrcBlend] [_DstBlend]
             ZWrite [_ZWrite]
+            ZTest Always
 
             CGPROGRAM
             #pragma target 3.0
@@ -104,6 +105,7 @@ Shader "Standard"
             Fog { Color (0,0,0,0) } // in additive pass fog should be black
             ZWrite Off
             ZTest LEqual
+              
 
             CGPROGRAM
             #pragma target 3.0
