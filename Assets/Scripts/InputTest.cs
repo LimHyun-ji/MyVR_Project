@@ -12,6 +12,9 @@ public class InputTest : MonoBehaviour
     public Text logText;
     public OVRHand rightHand;
     public OVRInput.Controller myController;
+    public float throwPower = 5;
+    public float torquePower = 5;
+    public GrabObjectSetter stick;
 
     Transform grabedObject_Left;
     Transform grabedObject_Right;
@@ -85,6 +88,10 @@ public class InputTest : MonoBehaviour
             Release(true);
         }
 
+        if(MTVS_Input.GetDown(MTVS_Input.Button.Jump, MTVS_Input.Controller.LTouch))
+        {
+            stick.ResetPosition();
+        }
 
     }
 
@@ -137,7 +144,18 @@ public class InputTest : MonoBehaviour
         if(rb)
         {
             rb.isKinematic = false;
+
+            // 던지는 방향으로 힘을 가한다.
+            //rb.AddForce()
+
+#if Oculus
+            rb.velocity = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.LTouch) * throwPower;
+            rb.angularVelocity = OVRInput.GetLocalControllerAngularVelocity(OVRInput.Controller.LTouch) * torquePower;
+#endif
+            
         }
+       
+
 
         if(isLeft)
         {
