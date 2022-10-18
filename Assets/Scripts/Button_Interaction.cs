@@ -33,6 +33,7 @@ public class Button_Interaction : MonoBehaviour
     public void OnClickEvent(string msg)
     {
         logText.text = msg;
+        Physics.BoxCast
     }
 
     public void TestFunc(int num)
